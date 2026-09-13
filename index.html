@@ -65,9 +65,28 @@ body {
     background-color: #6affcb;
 }
 
-button img {
-    width: 30px;
+.card img {
+    width: 100px;
     height: auto;
+    animation-name: animasi1;
+    animation-duration: 0.6s;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+p {
+    font-size: 11px;
 }
     </style>
     <title>Ngoding.id</title>
@@ -99,11 +118,39 @@ Siap memulai perjalanan menjadi seorang coder?</p>
             <h2>Halo, yuk mulai belajar!</h2>
         </div>
         
-        <button>
-            <a href='google.com'>
-                <img src='https://zenstory24.github.io/Ngoding.id/html.png'>
-            </a>
-        </button>
+        <div class='container'>
+            <div id='c1' class='hidden'>
+            <div class='card'>
+                <a href='https://google.com'>
+                    <img src='https://zenstory24.github.io/Ngoding.id/code.png'>
+                </a>
+            </div>
+        </div>
+        
+        <div id='c2' class='hidden'>
+            <div class='card'>
+                <a href='https://google.com'>
+                    <img src='https://zenstory24.github.io/Ngoding.id/html.png'>
+                </a>
+            </div>
+        </div>
+        
+        <div id='c3' class='hidden'>
+            <div class='card'>
+                <a href='https://google.com'>
+                    <img src='https://zenstory24.github.io/Ngoding.id/css.png'>
+                </a>
+            </div>
+        </div>
+        
+        <div id='c4' class='hidden'>
+            <div class='card'>
+                <a href='https://google.com'>
+                    <img src='https://zenstory24.github.io/Ngoding.id/js.png'
+                </a>
+            </div>
+        </div>
+        </div>
     </div>
     
     <script>
@@ -113,6 +160,11 @@ const mainSlide = document.getElementById('main-slide');
 
 const startBtn = document.getElementById('start-btn');
 
+const c1 = document.getElementById('c1');
+const c2 = document.getElementById('c2');
+const c3 = document.getElementById('c3');
+const c4 = document.getElementById('c4');
+
 window.addEventListener('load', function() {
     loadingScreen.classList.add('hidden');
     openingScreen.classList.remove('hidden');
@@ -121,6 +173,18 @@ window.addEventListener('load', function() {
 function showMainSlide() {
     openingScreen.classList.add('hidden');
     mainSlide.classList.remove('hidden');
+    c1.classList.remove('hidden');
+    setTimeout(() => {
+        c2.classList.remove('hidden');
+    }, 200);
+    
+    setTimeout(() => {
+        c3.classList.remove('hidden');
+    }, 400);
+    
+    setTimeout(() => {
+        c4.classList.remove('hidden');
+    }, 600);
 }
 
 startBtn.addEventListener('click', function() {
@@ -128,4 +192,5 @@ startBtn.addEventListener('click', function() {
 });
     </script>
 </body>
-</html>
+    </html>
+    
