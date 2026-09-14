@@ -15,7 +15,6 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    font-family: "Arial", sans-serif;
 }
 
 #loading-screen {
@@ -78,16 +77,26 @@ body {
     gap: 20px;
 }
 
+.card-code {
+    margin: 0 auto !important;
+    display: block;
+}
+
 .card {
     transition: transform 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
 p {
     font-size: 11px;
+}
+
+#info-screen {
+    position: fixed;
+    color: white;
 }
     </style>
     <title>Ngoding.id</title>
@@ -119,52 +128,62 @@ Siap memulai perjalanan menjadi seorang coder?</p>
             <h2>Halo, yuk mulai belajar!</h2>
         </div>
         
+        <div id='c1' class='hidden'>
+            <div class='card'>
+                <img src='https://zenstory24.github.io/Ngoding.id/code.png'>
+            </div>
+        </div>
+        
         <div class='container'>
-            <div id='c1' class='hidden'>
-            <div class='card'>
-                <a href='https://google.com'>
-                    <img src='https://zenstory24.github.io/Ngoding.id/code.png'>
-                </a>
+            <div id='c2' class='hidden'>
+                <div class='card'>
+                    <img class='card-code' src='https://zenstory24.github.io/Ngoding.id/html.png'>
+                </div>
             </div>
-        </div>
         
-        <div id='c2' class='hidden'>
-            <div class='card'>
-                <a href='https://google.com'>
-                    <img src='https://zenstory24.github.io/Ngoding.id/html.png'>
-                </a>
-            </div>
-        </div>
-        
-        <div id='c3' class='hidden'>
-            <div class='card'>
-                <a href='https://google.com'>
+            <div id='c3' class='hidden'>
+                <div class='card'>
                     <img src='https://zenstory24.github.io/Ngoding.id/css.png'>
-                </a>
+                </div>
             </div>
-        </div>
         
-        <div id='c4' class='hidden'>
-            <div class='card'>
-                <a href='https://google.com'>
-                    <img src='https://zenstory24.github.io/Ngoding.id/js.png'
-                </a>
+            <div id='c4' class='hidden'>
+                <div class='card'>
+                    <img src='https://zenstory24.github.io/Ngoding.id/js.png'>
+                </div>
             </div>
         </div>
-        </div>
+    </div>
+    
+    
+    
+    <div id='info-screen' class='hidden'>
+        <p id='teks'><b></b></p>
+        <button id='materi'>Buka Materi</button>
+        <button id='back'>Kembali</button>
     </div>
     
     <script>
         const loadingScreen = document.getElementById('loading-screen');
 const openingScreen = document.getElementById('opening-screen');
 const mainSlide = document.getElementById('main-slide');
+const infoScreen = document.getElementById('info-screen');
 
 const startBtn = document.getElementById('start-btn');
+const materi = document.getElementById('materi');
+const back = document.getElementById('back');
 
 const c1 = document.getElementById('c1');
 const c2 = document.getElementById('c2');
 const c3 = document.getElementById('c3');
 const c4 = document.getElementById('c4');
+
+const teks = document.getElementById('teks');
+
+const description1 = 'Coding & Website<br><br>Sebelum mulai menulis kode, kamu perlu kenalan dulu dengan dasar-dasarnya: apa itu coding, apa itu website, dan cara kerja text editor yang akan jadi "alat tempurmu" selama belajar. Kamu juga akan dipandu cara menginstal text editor, baik di PC maupun HP.';
+const description2 = 'HTML<br><br>HTML adalah bahasa pertama yang wajib kamu kuasai untuk membangun website. Di materi ini kamu akan belajar membuat "kerangka" halaman web, mulai dari struktur dasar, jenis-jenis tag, sampai elemen-elemen penting seperti teks, gambar, tabel, dan form. Setiap bab dilengkapi tantangan kecil supaya kamu langsung praktik.';
+const description3 = 'CSS<br><br>Kerangka HTML saja belum cukup, di sinilah CSS berperan. Materi ini akan mengajarkan cara mendandani website: mengatur warna, ukuran, jarak, tata letak, sampai membuat tampilan yang rapi dan enak dilihat. Sama seperti HTML, ada tantangan di setiap babnya.';
+const description4 = 'JavaScript<br><br>Ini adalah bahasa yang membuat website jadi hidup dan interaktif. Materi ini dimulai dari pondasi dasar pemrograman, seperti variabel, tipe data, percabangan, perulangan, dan fungsi, lengkap dengan studi kasus di setiap bab. Setelah pondasimu kuat, kamu akan belajar menggabungkan JavaScript dengan HTML dan CSS untuk membuat project website sederhana.';
 
 window.addEventListener('load', function() {
     loadingScreen.classList.add('hidden');
@@ -191,7 +210,50 @@ function showMainSlide() {
 startBtn.addEventListener('click', function() {
     showMainSlide();
 });
+
+c1.addEventListener('click', function() {
+    teks.innerHTML = '';
+    infoScreen.classList.remove('hidden');
+    teks.innerHTML = description1;
+    
+    materi.addEventListener('click', function() {
+        window.open('https://google.com');
+    });
+});
+
+c2.addEventListener('click', function() {
+    teks.innerHTML = '';
+    infoScreen.classList.remove('hidden');
+    teks.innerHTML = description2;
+    
+    materi.addEventListener('click', function() {
+        window.open('https://google.com');
+    });
+});
+
+c3.addEventListener('click', function() {
+    teks.innerHTML = '';
+    infoScreen.classList.remove('hidden');
+    teks.innerHTML = description3;
+    
+    materi.addEventListener('click', function() {
+        window.open('https://google.com');
+    });
+});
+
+c4.addEventListener('click', function() {
+    teks.innerHTML = '';
+    infoScreen.classList.remove('hidden');
+    teks.innerHTML = description4;
+    
+    materi.addEventListener('click', function() {
+        window.open('https://google.com');
+    });
+});
+
+back.addEventListener('click', function() {
+    infoScreen.classList.add('hidden');
+});
     </script>
 </body>
-    </html>
-    
+</html>
