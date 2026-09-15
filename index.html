@@ -15,6 +15,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    margin: 0;
 }
 
 #loading-screen {
@@ -75,6 +76,7 @@ body {
 .container {
     display: flex;
     gap: 20px;
+    margin: 10px;
 }
 
 .card-code {
@@ -95,8 +97,94 @@ p {
 }
 
 #info-screen {
-    position: fixed;
     color: white;
+    animation-name: animasi2;
+    animation-duration: 1s;
+    border: 0.8px solid black;
+    border-radius: 8px;
+    background: #3030305c;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 320px;
+    margin: 8px;
+    bottom: 200px;
+}
+
+@keyframes animasi2 {
+    0% {
+        transform: translateX(-30%);
+    }
+    50% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#main-slide {
+    border: 0.8px solid black;
+    border-radius: 10px;
+    background: #3030305c;
+    color: white;
+    text-align: center;
+    margin: 10px auto;
+    width: 300px;
+}
+
+#c1 {
+    margin: 10px;
+}
+
+#materi {
+    background-color: #bfffd5;
+    border: none;
+    height: 20px;
+    border-radius: 6px;
+}
+
+#back {
+    background-color: #7e7e7e;
+    border: none;
+    height: 20px;
+    margin-left: 180px;
+    border-radius: 6px;
+}
+
+#footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 20px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 !important;
+    border: 1px solid #333333;
+    bottom: -430px;
+    position: absolute;
+    width: 100%;
+}
+
+#motivation {
+    color: white;
+    border: 0.8px solid black;
+    background: #3030305c;
+    border-radius: 8px;
+    margin: 8px;
+    padding: 10px;
+    bottom: 0;
+    position: absolute;
+}
+
+#donate {
+    margin: 8px;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    bottom: -150px;
+    position: absolute;
+    padding: 10px;
+    width: 300px;
 }
     </style>
     <title>Ngoding.id</title>
@@ -125,7 +213,7 @@ Siap memulai perjalanan menjadi seorang coder?</p>
     
     <div>
         <div id='main-slide' class='hidden'>
-            <h2>Halo, yuk mulai belajar!</h2>
+            <h2 id='teks2'></h2>
         </div>
         
         <div id='c1' class='hidden'>
@@ -157,17 +245,43 @@ Siap memulai perjalanan menjadi seorang coder?</p>
     
     
     
+    
+    
     <div id='info-screen' class='hidden'>
         <p id='teks'><b></b></p>
         <button id='materi'>Buka Materi</button>
         <button id='back'>Kembali</button>
     </div>
     
+    <div id='motivation' class='hidden'></div>
+    
+    
+    
+    <div id='donate' class='hidden'>
+        <p>Yang mau donate kami untuk beli device baru buat ngoding💸: </p><br>
+        <a href='saweria.co/ZenStudiojs'>saweria.co/ZenStudiojs</a>
+    </div>
+    
+    
+    
+    <footer id='footer' class='hidden'>
+        <h5>©2026 ZenStudio</h5>
+        <h6>Follow us:<br></h6>
+        <a href='https://zenstory24.github.io/Portofolio/'>Portofolio</a><br>
+        <a href='https://www.instagram.com/zenstory.js?stkn=MTBjaXlyd2k1aXQ5cw=='>Instagram</a>
+        <a href='https://www.tiktok.com/@zenstory.js?_r=1&_t=ZS-99kufiih9uu'>TikTok</a><br>
+        <a href='https://discordapp.com/users/1533961073085124762'>Discord</a><br>
+        <a href='https://x.com/zenstoryhe'>X Twitter</a>
+    </footer>
+    
     <script>
         const loadingScreen = document.getElementById('loading-screen');
 const openingScreen = document.getElementById('opening-screen');
 const mainSlide = document.getElementById('main-slide');
 const infoScreen = document.getElementById('info-screen');
+const footer = document.getElementById('footer');
+const motivation = document.getElementById('motivation');
+const donate = document.getElementById('donate');
 
 const startBtn = document.getElementById('start-btn');
 const materi = document.getElementById('materi');
@@ -179,11 +293,35 @@ const c3 = document.getElementById('c3');
 const c4 = document.getElementById('c4');
 
 const teks = document.getElementById('teks');
+const teks2 = document.getElementById('teks2');
+const openingText = 'Hai, mulai belajar?';
+
+let i = 0;
 
 const description1 = 'Coding & Website<br><br>Sebelum mulai menulis kode, kamu perlu kenalan dulu dengan dasar-dasarnya: apa itu coding, apa itu website, dan cara kerja text editor yang akan jadi "alat tempurmu" selama belajar. Kamu juga akan dipandu cara menginstal text editor, baik di PC maupun HP.';
 const description2 = 'HTML<br><br>HTML adalah bahasa pertama yang wajib kamu kuasai untuk membangun website. Di materi ini kamu akan belajar membuat "kerangka" halaman web, mulai dari struktur dasar, jenis-jenis tag, sampai elemen-elemen penting seperti teks, gambar, tabel, dan form. Setiap bab dilengkapi tantangan kecil supaya kamu langsung praktik.';
 const description3 = 'CSS<br><br>Kerangka HTML saja belum cukup, di sinilah CSS berperan. Materi ini akan mengajarkan cara mendandani website: mengatur warna, ukuran, jarak, tata letak, sampai membuat tampilan yang rapi dan enak dilihat. Sama seperti HTML, ada tantangan di setiap babnya.';
 const description4 = 'JavaScript<br><br>Ini adalah bahasa yang membuat website jadi hidup dan interaktif. Materi ini dimulai dari pondasi dasar pemrograman, seperti variabel, tipe data, percabangan, perulangan, dan fungsi, lengkap dengan studi kasus di setiap bab. Setelah pondasimu kuat, kamu akan belajar menggabungkan JavaScript dengan HTML dan CSS untuk membuat project website sederhana.';
+const motivasi = 'Jangan takut salah saat belajar, karena dari kesalahan itulah kita menemukan cara untuk memahami sesuatu dengan lebih baik. -Author';
+
+function typeText() {
+    if (i < openingText.length) {
+        teks2.innerHTML += openingText.charAt(i);
+        i++;
+        setTimeout(typeText, 100); 
+    } else {
+        i = 0;
+        typeMotivation();
+    }
+}
+
+function typeMotivation() {
+    if (i < motivasi.length) {
+        motivation.innerHTML += motivasi.charAt(i);
+        i++;
+        setTimeout(typeMotivation, 80); 
+    }
+}
 
 window.addEventListener('load', function() {
     loadingScreen.classList.add('hidden');
@@ -193,6 +331,11 @@ window.addEventListener('load', function() {
 function showMainSlide() {
     openingScreen.classList.add('hidden');
     mainSlide.classList.remove('hidden');
+    footer.classList.remove('hidden');
+    motivation.classList.remove('hidden');
+    donate.classList.remove('hidden');
+    typeText();
+    
     c1.classList.remove('hidden');
     setTimeout(() => {
         c2.classList.remove('hidden');
@@ -200,11 +343,11 @@ function showMainSlide() {
     
     setTimeout(() => {
         c3.classList.remove('hidden');
-    }, 400);
+    }, 500);
     
     setTimeout(() => {
         c4.classList.remove('hidden');
-    }, 600);
+    }, 800);
 }
 
 startBtn.addEventListener('click', function() {
