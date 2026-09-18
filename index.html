@@ -10,14 +10,25 @@
 }
 
 body {
-    background-image: url('https://zenstory24.github.io/Ngoding.id/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     margin: 0;
     font-family: "Arial", sans-serif;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('https://zenstory24.github.io/Ngoding.id/background>>.jpg'); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform; 
+}
+
 
 #loading-screen {
     width: 300px;
@@ -400,6 +411,8 @@ c4.addEventListener('click', function() {
 back.addEventListener('click', function() {
     infoScreen.classList.add('hidden');
 });
+
+console.log('semoga author bisa juara LKS');
     </script>
 </body>
 </html>
