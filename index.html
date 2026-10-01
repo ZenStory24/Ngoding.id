@@ -31,7 +31,6 @@ body {
     height: auto;
     text-align: center;
     background: #e8fffc5c;
-    border: 0.5px solid black;
     border-radius: 8px;
     padding: 5px;
     margin: 30px auto;
@@ -75,6 +74,8 @@ body {
     display: flex;
     gap: 1px;
     margin: 10px;
+    top: 100px;
+    position: absolute;
 }
 
 .card-code {
@@ -97,16 +98,18 @@ p {
 #info-screen {
     animation-name: animasi2;
     animation-duration: 1s;
-    border: 0.8px solid black;
     border-radius: 8px;
+    border: 1px solid black;
     background: #2F343F;
     padding: 10px;
     font-size: 15px;
     font-weight: bold;
     width: 320px;
     margin: 8px;
-    bottom: 180px;
     color: white;
+    border-color: hwb(167 39% 9%);
+    position: absolute;
+    top: 300px;
 }
 
 @keyframes animasi2 {
@@ -122,8 +125,9 @@ p {
 }
 
 #main-slide {
-    border: 0.8px solid black;
+    border: 1px solid black;
     border-radius: 10px;
+    border-color: hwb(167 39% 9%);
     background: #2F343F;
     text-align: center;
     margin: 10px auto;
@@ -171,13 +175,14 @@ p {
 
 #motivation {
     color: white;
-    border: 0.8px solid black;
+    border: 1px solid black;
     background: #2F343F;
     border-radius: 8px;
     margin: 8px;
     padding: 10px;
     bottom: -50px;
     position: absolute;
+    border-color: hwb(167 39% 9%);
 }
 
 #donate {
@@ -407,4 +412,4 @@ back.addEventListener('click', function() {
 console.log('semoga author bisa juara LKS');
     </script>
 </body>
-    </html>
+</html>
